@@ -7,8 +7,8 @@ const WeaponList = () => {
 
   useEffect(() => {
     // Fetch the data from Flask backend
-    axios.get('http://127.0.0.1:5000/')
-    //axios.get('https://adoh-dps-backend.onrender.com')
+    //axios.get('http://127.0.0.1:5000/')
+    axios.get('https://adoh-dps-backend.onrender.com')
       .then(response => {
         // Set the response data (which contains HTML) to state
         setWeaponData(response.data);
