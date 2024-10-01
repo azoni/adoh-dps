@@ -1,0 +1,28 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const WeaponList = () => {
+  const [weaponData, setWeaponData] = useState('');
+
+  useEffect(() => {
+    // Fetch the data from Flask backend
+    axios.get('http://localhost:5000/')
+      .then(response => {
+        // Set the response data (which contains HTML) to state
+        setWeaponData(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the weapon data!', error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Weapon Data</h1>
+      {/* Render the HTML from Flask */}
+      <div dangerouslySetInnerHTML={{ __html: weaponData }} />
+    </div>
+  );
+};
+
+export default WeaponList;
