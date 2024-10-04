@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App" >
       <DamageCalculator />
-      {/* <WeaponInfo /> */}
+      <WeaponInfo />
       <WeaponList />
     </div>
   );
