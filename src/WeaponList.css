@@ -1,21 +1,65 @@
-.weapon-list-container {
-  margin-left: 20px; /* Space between the form and weapon info */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.weapon-list-container h2 {
-  text-align: center; /* Center the title */
+.table-container {
+  max-height: 750px; /* Set a maximum height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Optional: border around the table */
 }
 
 table {
-  border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders for a cleaner look */
+  table-layout: fixed; /* Make the table layout fixed to ensure column widths are respected */
 }
 
 th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: left;
+  padding: 8px; /* Padding for better readability */
+  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd; /* Light border for table cells */
+}
+
+thead th {
+  background-color: #f2f2f2; /* Background for header */
+  position: sticky; /* Make header sticky */
+  top: 0; /* Position it at the top */
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row color for better readability */
+}
+
+/* Optional: Set fixed widths for specific columns */
+th:nth-child(1), td:nth-child(1) {
+  width: 150px; /* Width for the Name column */
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 100px; /* Width for the Base Damage column */
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 100px; /* Width for the Crit column */
+}
+
+th:nth-child(4), td:nth-child(4) {
+  width: 100px; /* Width for the Total Damage column */
+}
+
+th:nth-child(5), td:nth-child(5) {
+  width: 100px; /* Width for the Feat column */
+}
+
+th:nth-child(6), td:nth-child(6) {
+  width: 100px; /* Width for the Size column */
+}
+
+th:nth-child(7), td:nth-child(7) {
+  width: 100px; /* Width for the Type column */
+}
+
+th:nth-child(8), td:nth-child(8) {
+  width: 100px; /* Width for the Is Monk column */
+}
+
+th:nth-child(9), td:nth-child(9) {
+  width: 200px; /* Width for the Damage Properties column */
 }

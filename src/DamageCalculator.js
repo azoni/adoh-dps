@@ -69,7 +69,7 @@ const DamageCalculator = () => {
 
   return (
     <div className="damage-calculator-container">
-      <h1>Damage Calculator</h1>
+      <h1>Immunities</h1>
       <form onSubmit={handleSubmit} className="damage-calculator-form">
         <table>
           <thead>
@@ -106,7 +106,7 @@ const DamageCalculator = () => {
         {/* Container for Armor Class, Critical Hit Immunity, and Button */}
         <div className="form-footer">
           <div className="armor-class-container">
-            <label htmlFor="armorClass">Armor Class:</label>
+            <label htmlFor="armorClass">AC:</label>
             <input
               type="input"
               id="armorClass"
@@ -123,7 +123,7 @@ const DamageCalculator = () => {
                 checked={criticalHitImmunity}
                 onChange={handleCriticalHitImmunityChange}
               />
-              Critical Hit Immunity
+              Crit Immune
             </label>
           </div>
           <div className="critical-hit-immunity-container">
@@ -133,11 +133,11 @@ const DamageCalculator = () => {
                 checked={criticalHitImmunity}
                 onChange={handleCriticalHitImmunityChange}
               />
-              Sneak Attack Immunity
+              Sneak Immune
             </label>
           </div>
           <div className="button-container">
-            <button type="submit">Calculate Damage</button>
+            <button type="submit">Calculate</button>
           </div>
         </div>
 

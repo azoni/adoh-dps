@@ -20,7 +20,7 @@ h1 {
 form {
   display: flex;
   justify-content: flex-start; /* Align form to the left */
-  padding: 20px;
+  padding: 5px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@ table {
 }
 
 th, td {
-  padding: 10px;
+  padding: 5px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -44,18 +44,18 @@ th {
 }
 
 input[type="text"] {
-  padding: 8px;
+  width: 75%;
+  padding: 2px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #28a745;
   color: white;
   font-size: 16px;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
