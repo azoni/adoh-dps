@@ -1,0 +1,23 @@
+/* Player.css */
+.Player {
+  max-width: 400px; /* Set a maximum width */
+  padding: 2px; /* Add some padding */
+  border: 1px solid #ccc; /* Optional border for clarity */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+}
+
+.player-stats-table {
+  width: 100%; /* Adjust to fit your layout */
+  border-collapse: collapse;
+}
+
+.player-stats-table td {
+  width: 25%; /* Make each column take 25% of the width */
+  padding: 5px; /* Add some padding */
+}
+
+
+.player-stats-table input {
+  padding: 5px; /* Add padding to input fields */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}

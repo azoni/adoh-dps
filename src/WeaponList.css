@@ -1,6 +1,6 @@
 .table-container {
   flex: 1; /* Make the WeaponList take up more space */
-  max-height: 750px; /* Set a maximum height for the scrollable area */
+  max-height: 500px; /* Set a maximum height for the scrollable area */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ddd; /* Optional: border around the table */
 }
@@ -32,41 +32,39 @@ tbody tr:nth-child(even) {
 
 /* Optional: Set fixed widths for specific columns */
 th:nth-child(1), td:nth-child(1) {
-  width: 150px; /* Width for the Name column */
+  width: 50px; /* Width for the Name column */
 }
 
 th:nth-child(2), td:nth-child(2) {
-  width: 100px; /* Width for the Base Damage column */
+  width: 50px; /* Width for the Base Damage column */
 }
 
 th:nth-child(3), td:nth-child(3) {
-  width: 100px; /* Width for the Crit column */
+  width: 50px; /* Width for the Crit column */
 }
 
 th:nth-child(4), td:nth-child(4) {
-  width: 100px; /* Width for the Total Damage column */
+  width: 50px; /* Width for the Total Damage column */
 }
 
 th:nth-child(5), td:nth-child(5) {
-  width: 100px; /* Width for the Feat column */
+  width: 50px; /* Width for the Feat column */
 }
 
 th:nth-child(6), td:nth-child(6) {
-  width: 100px; /* Width for the Size column */
+  width: 50px; /* Width for the Size column */
 }
 
 th:nth-child(7), td:nth-child(7) {
-  width: 100px; /* Width for the Type column */
+  width: 50px; /* Width for the Type column */
 }
 
 th:nth-child(8), td:nth-child(8) {
-  width: 100px; /* Width for the Is Monk column */
+  width: 50px; /* Width for the Is Monk column */
 }
 
-th:nth-child(9), td:nth-child(9) {
-  width: 200px; /* Width for the Damage Properties column */
-}
 .search-bar {
+  display: flex;
   width: 50%;
   height: 30px;
   padding: 5px;

@@ -6,13 +6,13 @@ const WeaponDetails = ({ weapon }) => {
   return (
     <div className="weapon-details">
       <h3>{weapon.name}</h3>
-      <p><strong>Base Damage:</strong> {weapon.base_damage}</p>
-      <p><strong>Crit:</strong> {weapon.crit}</p>
-      <p><strong>Total Damage:</strong> {weapon.damage}</p>
-      <p><strong>Feat:</strong> {weapon.feat}</p>
-      <p><strong>Size:</strong> {weapon.size}</p>
-      <p><strong>Type:</strong> {weapon.type}</p>
-      
+      {/* <strong>Base Damage:</strong> {weapon.base_damage}
+      <strong>Crit:</strong> {weapon.crit}
+      <strong>Total Damage:</strong> {weapon.damage}
+      <strong>Feat:</strong> {weapon.feat}
+      <strong>Size:</strong> {weapon.size}
+      <strong>Type:</strong> {weapon.type}
+      <br></br> */}
         <strong>Damage Properties:</strong>
         <ul>
           {Array.isArray(weapon.properties) ? (

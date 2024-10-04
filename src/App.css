@@ -1,6 +1,9 @@
 .App {
-  display: flex; /* Use flexbox to arrange child components side by side */
-  align-items: flex-start; /* Align items to the start */
-  padding: 20px; /* Add some padding around the container */
-  gap: 20px; /* Optional: Add gap between the components */
+  display: flex;
+  justify-content: space-between; /* Spread main-content and WeaponList */
+  padding: 10px;
+}
+
+.main-content {
+  margin-right: 10px;    /* Space between main content and WeaponList */
 }

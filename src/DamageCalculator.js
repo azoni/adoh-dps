@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './DamageCalculator.css';  // Make sure to import your CSS file
-
+import Player from './Player';
 const DamageCalculator = () => {
   const [formData, setFormData] = useState({
     fire: { immunity: '', resist: '' },
@@ -72,7 +72,8 @@ const DamageCalculator = () => {
 
   return (
     <div className="damage-calculator-container">
-      <h1>Defenses</h1>
+      <Player />
+      <h2>Target Stats</h2>
       <form onSubmit={handleSubmit} className="damage-calculator-form">
         <table>
           <thead>

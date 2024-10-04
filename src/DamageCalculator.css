@@ -14,7 +14,7 @@ body {
 }
 h1 {
   color: #333;
-  text-align: center;
+  text-align: left;
 }
 
 form {
@@ -24,7 +24,7 @@ form {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -43,9 +43,9 @@ th {
   font-weight: bold;
 }
 
-input[type="text"] {
+input {
   width: 75%;
-  padding: 2px;
+  padding: 5px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -87,7 +87,7 @@ button:hover {
 }
 
 .armor-class-container input {
-  width: 100%;
+  width: 40px;
   padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -97,7 +97,7 @@ button:hover {
 .critical-hit-immunity-container {
   display: flex; /* Use flexbox for this container */
   align-items: center; /* Vertically center the checkbox and label */
-  margin-right: 20px; /* Add space between checkbox and button */
+  margin-right: 10px; /* Add space between checkbox and button */
 }
 
 .button-container {
