@@ -1,0 +1,11 @@
+/* WeaponDetails.css */
+.weapon-details {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.weapon-details h2 {
+  margin-top: 0;
+}

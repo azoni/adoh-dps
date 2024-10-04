@@ -1,4 +1,5 @@
 .table-container {
+  flex: 1; /* Make the WeaponList take up more space */
   max-height: 750px; /* Set a maximum height for the scrollable area */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ddd; /* Optional: border around the table */
@@ -9,7 +10,9 @@ table {
   border-collapse: collapse; /* Collapse borders for a cleaner look */
   table-layout: fixed; /* Make the table layout fixed to ensure column widths are respected */
 }
-
+.table-container tr {
+  cursor: pointer; /* Change cursor to pointer when hovering over rows */
+}
 th, td {
   padding: 8px; /* Padding for better readability */
   text-align: left; /* Align text to the left */
@@ -62,4 +65,24 @@ th:nth-child(8), td:nth-child(8) {
 
 th:nth-child(9), td:nth-child(9) {
   width: 200px; /* Width for the Damage Properties column */
+}
+.search-bar {
+  width: 50%;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.container {
+  display: flex;
+  justify-content: space-between; /* This ensures the components are spaced out */
+  align-items: flex-start; /* Align items at the top */
+}
+
+.weapon-details {
+  flex: 0.2; /* Make the WeaponDetails smaller */
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }

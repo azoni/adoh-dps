@@ -52,7 +52,10 @@ const DamageCalculator = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/calculate_damage', {
+      const apiUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5000/calculate_damage'
+      : 'https://adoh-dps-backend.onrender.com/calculate_damage';
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +72,7 @@ const DamageCalculator = () => {
 
   return (
     <div className="damage-calculator-container">
-      <h1>Immunities</h1>
+      <h1>Defenses</h1>
       <form onSubmit={handleSubmit} className="damage-calculator-form">
         <table>
           <thead>
