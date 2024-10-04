@@ -1,28 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './WeaponList.css';
 
 const WeaponList = () => {
-  const [weaponData, setWeaponData] = useState('');
+  const [weapons, setWeapons] = useState({});
 
   useEffect(() => {
-    // Fetch the data from Flask backend
-    //axios.get('http://127.0.0.1:5000/')
-    axios.get('https://adoh-dps-backend.onrender.com')
-      .then(response => {
-        // Set the response data (which contains HTML) to state
-        setWeaponData(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the weapon data!', error);
-      });
+    const apiUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'https://adoh-dps-backend.onrender.com';
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => setWeapons(data))
+      .catch(error => console.error('Error fetching weapons:', error));
   }, []);
 
   return (
     <div>
-      <h1>Weapon Data</h1>
-      {/* Render the HTML from Flask */}
-      <div dangerouslySetInnerHTML={{ __html: weaponData }} />
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Base Damage</th>
+            <th>Crit</th>
+            <th>Total Damage</th>
+            <th>Feat</th>
+            <th>Size</th>
+            <th>Type</th>
+            <th>Is Monk</th>
+            <th>Damage Properties</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(weapons).map(weaponName => (
+            <tr key={weaponName}>
+              <td>{weaponName}</td>
+              <td>{weapons[weaponName].base_damage}</td>
+              <td>{weapons[weaponName].crit}</td>
+              <td>{weapons[weaponName].damage}</td>
+              <td>{weapons[weaponName].feat}</td>
+              <td>{weapons[weaponName].size}</td>
+              <td>{weapons[weaponName].type}</td>
+              <td>{weapons[weaponName].target_damage}</td>
+              <td>
+                {weapons[weaponName].properties.map((property, index) => (
+                  <div key={index}>{property}</div>
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

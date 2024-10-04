@@ -1,4 +1,4 @@
-.weapon-list-container {
+.weapon-info-container {
   margin-left: 20px; /* Space between the form and weapon info */
   padding: 20px;
   border: 1px solid #ccc;
@@ -6,7 +6,7 @@
   background-color: #f9f9f9;
 }
 
-.weapon-list-container h2 {
+.weapon-info-container h2 {
   text-align: center; /* Center the title */
 }
 
