@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
 import './Player.css';
 import './DamageCalculator.css'; 
+import { AppContext } from './AppContext';
+import { useContext } from 'react';
 
 const Player = () => {
-  const [playerStats, setPlayerStats] = useState({
-    AB: '65',
-    strMod: '',
-    EB: '10',
-    "2Handed": false,
-    keen: true,
-    "Imp Crit": true,
-    WM: false,
-    shifted: false,
-  });
 
+  const {playerStats, setPlayerStats } = useContext(AppContext);
   const handleInputChange = (e) => {
     const { name, type, value } = e.target;
     const newValue = type === 'checkbox' ? e.target.checked : value;

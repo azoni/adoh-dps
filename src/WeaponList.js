@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './WeaponList.css';
 import WeaponDetails from './WeaponDetails'; // Import the new component
+import { AppContext } from './AppContext';
+import { useContext } from 'react';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const WeaponList = () => {
-  const [weapons, setWeapons] = useState({});
-  const [selectedWeapon, setSelectedWeapon] = useState(null);
+const WeaponList = ({ setSelectedWeapon }) => {
+  const [tempSelect, settempSelect] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
-
+  const {weapons, setWeapons} = useContext(AppContext);
   useEffect(() => {
     const apiUrl = window.location.hostname === 'localhost'
       ? 'http://localhost:5000'
@@ -43,6 +44,7 @@ const WeaponList = () => {
 
   const handleRowClick = (weaponName) => {
     setSelectedWeapon(weaponName);
+    settempSelect(weaponName)
   };
 
   const handleSort = (key) => {
@@ -56,6 +58,7 @@ const WeaponList = () => {
   return (
     <div>
       <h1>ADOH Purple Weapon Calculator (Doesn't work yet. No calculations.)</h1>
+      <h3>(Click column names to sort, no icons yet. Player stats ac, and resists dont do anything yet.)</h3>
       <input
         type="text"
         placeholder="Search for a weapon..."
@@ -70,7 +73,7 @@ const WeaponList = () => {
               <tr>
                 <th onClick={() => handleSort('name')}>Name <i className={`fas fa-sort-${sortConfig.key === 'name' ? sortConfig.direction : 'disabled'}`}></i></th>
                 <th onClick={() => handleSort('base_damage')}>Base Damage <i className={`fas fa-sort-${sortConfig.key === 'base_damage' ? sortConfig.direction : 'disabled'}`}></i></th>
-                <th onClick={() => handleSort('crit')}>Crit <i className={`fas fa-sort-${sortConfig.key === 'crit' ? sortConfig.direction : 'disabled'}`}></i></th>
+                {/* <th onClick={() => handleSort('crit')}>Crit <i className={`fas fa-sort-${sortConfig.key === 'crit' ? sortConfig.direction : 'disabled'}`}></i></th> */}
                 <th onClick={() => handleSort('damage')}>Average Damage <i className={`fas fa-sort-${sortConfig.key === 'damage' ? sortConfig.direction : 'disabled'}`}></i></th>
                 <th onClick={() => handleSort('feat')}>Feat <i className={`fas fa-sort-${sortConfig.key === 'feat' ? sortConfig.direction : 'disabled'}`}></i></th>
                 <th onClick={() => handleSort('size')}>Size <i className={`fas fa-sort-${sortConfig.key === 'size' ? sortConfig.direction : 'disabled'}`}></i></th>
@@ -83,10 +86,10 @@ const WeaponList = () => {
                 <tr 
                   key={weaponName} 
                   onClick={() => handleRowClick(weaponName)} 
-                  style={{ backgroundColor: selectedWeapon === weaponName ? '#d1e7dd' : 'transparent' }}>
+                  style={{ backgroundColor: tempSelect === weaponName ? '#d1e7dd' : 'transparent' }}>
                   <td>{weaponName}</td>
                   <td>{weapons[weaponName].base_damage}</td>
-                  <td>{weapons[weaponName].crit}</td>
+                  {/* <td>{weapons[weaponName].crit}</td> */}
                   <td>{weapons[weaponName].damage}</td>
                   <td>{weapons[weaponName].feat}</td>
                   <td>{weapons[weaponName].size}</td>
@@ -102,8 +105,8 @@ const WeaponList = () => {
           </table>
         </div>
       </div>
-      {selectedWeapon && (
-        <WeaponDetails weapon={{ ...weapons[selectedWeapon], name: selectedWeapon }} />
+      {tempSelect && (
+        <WeaponDetails weapon={{ ...weapons[tempSelect], name: tempSelect }} />
       )}
     </div>
   );

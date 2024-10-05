@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import './DamageCalculator.css';  // Make sure to import your CSS file
-import Player from './Player';
-const DamageCalculator = () => {
-  const [formData, setFormData] = useState({
-    fire: { immunity: '', resist: '' },
-    cold: { immunity: '', resist: '' },
-    electric: { immunity: '', resist: '' },
-    acid: { immunity: '', resist: '' },
-    sonic: { immunity: '', resist: '' },
-    negative: { immunity: '', resist: '' },
-    positive: { immunity: '', resist: '' },
-    divine: { immunity: '', resist: '' },
-    magical: { immunity: '', resist: '' },
-    pure: { immunity: '', resist: '' },
-  });
+import { AppContext } from './AppContext';
+import { useContext } from 'react';
 
+const DamageCalculator = ({ selectedWeapon }) => {
+  const [formData, setFormData] = useState({
+    physical: { immunity: '35', resist: '0' }, // Default values
+    fire: { immunity: '25', resist: '0' },
+    cold: { immunity: '25', resist: '0' },
+    electric: { immunity: '25', resist: '0' },
+    acid: { immunity: '25', resist: '0' },
+    sonic: { immunity: '25', resist: '0' },
+    negative: { immunity: '25', resist: '0' },
+    positive: { immunity: '10', resist: '0' },
+    divine: { immunity: '10', resist: '0' },
+    magical: { immunity: '10', resist: '0' },
+    pure: { immunity: '0', resist: '0' }
+  });
+  const {playerStats, setWeapons} = useContext(AppContext);
   const [damage, setDamage] = useState(null);
   const [armorClass, setArmorClass] = useState('');
   const [criticalHitImmunity, setCriticalHitImmunity] = useState(false);
+  const [sneakAttackImmunity, setSneakAttackImmunity] = useState(false);
   const handleChange = (e, type, field) => {
     const { value } = e.target;
     setFormData(prevState => ({
@@ -32,6 +36,9 @@ const DamageCalculator = () => {
     setArmorClass(e.target.value);
   };
 
+  const handleSneakAttackImmunityChange = () => {
+    setSneakAttackImmunity(prev => !prev);
+  };
   const handleCriticalHitImmunityChange = () => {
     setCriticalHitImmunity(prev => !prev);
   };
@@ -49,6 +56,9 @@ const DamageCalculator = () => {
       })).filter(item => item.value), // Filter out empty values
       armorClass,
       criticalHitImmunity,
+      sneakAttackImmunity,
+      weapon: selectedWeapon,
+      player: playerStats,
     };
 
     try {
@@ -64,7 +74,9 @@ const DamageCalculator = () => {
       });
       
       const result = await response.json();
-      setDamage(result.damage);
+
+      setDamage(result.damage[selectedWeapon]['damage']);
+      setWeapons(result.damage)
     } catch (error) {
       console.error('Error calculating damage:', error);
     }
@@ -72,7 +84,6 @@ const DamageCalculator = () => {
 
   return (
     <div className="damage-calculator-container">
-      <Player />
       <h2>Target Stats</h2>
       <form onSubmit={handleSubmit} className="damage-calculator-form">
         <table>
@@ -134,8 +145,8 @@ const DamageCalculator = () => {
             <label>
               <input
                 type="checkbox"
-                checked={criticalHitImmunity}
-                onChange={handleCriticalHitImmunityChange}
+                checked={sneakAttackImmunity}
+                onChange={handleSneakAttackImmunityChange}
               />
               Sneak Immune
             </label>
