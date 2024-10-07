@@ -23,7 +23,7 @@ const WeaponList = ({ setSelectedWeapon }) => {
       })
       .then(data => setWeapons(data))
       .catch(error => console.error('Error fetching weapons:', error));
-  },);
+  }, [setWeapons]);
 
   const filteredWeapons = Object.keys(weapons).filter(weaponName =>
     weaponName.toLowerCase().includes(searchTerm.toLowerCase())

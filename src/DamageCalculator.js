@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 const DamageCalculator = ({ selectedWeapon }) => {
   const [formData, setFormData] = useState({
-    physical: { immunity: '35', resist: '0' }, // Default values
+    physical: { immunity: '25', resist: '0' }, // Default values
     fire: { immunity: '25', resist: '0' },
     cold: { immunity: '25', resist: '0' },
     electric: { immunity: '25', resist: '0' },
