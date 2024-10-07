@@ -74,8 +74,11 @@ const DamageCalculator = ({ selectedWeapon }) => {
       });
       
       const result = await response.json();
-
-      setDamage(result.damage[selectedWeapon]['damage']);
+      if(selectedWeapon !== null) {
+        setDamage(result.damage[selectedWeapon]['damage']);
+      } else {
+        setDamage('')
+      }
       setWeapons(result.damage)
     } catch (error) {
       console.error('Error calculating damage:', error);
